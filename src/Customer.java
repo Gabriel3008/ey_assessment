@@ -29,13 +29,14 @@ String fullName,
 
     //Generates a new invoice based on the product purchased and the quantity
     public void addToCard(Product product, int quantity){
+        System.out.println("New item purchased. Product: " + product.name + " quantity: "  + quantity);
         addInvoiceUpdateBalance(new Invoice(this.accountNo, new Date().toString(), product, quantity));
     }
 
     //adds the new invoice in the list of invoices, updates the account balance and prints the new balance
     private void addInvoiceUpdateBalance(Invoice newInvoice){
         this.invoices.add(newInvoice);
-        this.accountBalance = getAccountBalance(this.invoices); 
+        this.accountBalance = getAccountBalance(this.invoices);
         System.out.println("Updated Balance: " + String.valueOf(this.accountBalance));
     }
 
